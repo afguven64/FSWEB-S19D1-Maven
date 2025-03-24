@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/workintech/fruits")
+@RequestMapping("/fruit")
 public class FruitController {
 
     private final FruitService fruitService;
@@ -43,7 +43,7 @@ public class FruitController {
         return fruitService.save(fruit);
     }
 
-    @PostMapping("/{name}")
+    @GetMapping("/name/{name}")
     public List<Fruit> getFruitByName(@Size(min=2, max=40, message= "isim 2-40 arası olmalı") @PathVariable("name") String name) {
         return fruitService.searchByName(name);
     }
